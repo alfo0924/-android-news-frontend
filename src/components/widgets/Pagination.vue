@@ -1,38 +1,47 @@
 <template>
-  <nav aria-label="Page navigation" v-if="totalPages > 1">
+  <nav
+    v-if="totalPages > 1"
+    aria-label="Page navigation"
+  >
     <ul class="pagination justify-content-center">
-      <li class="page-item" :class="{ disabled: currentPage === 1 }">
+      <li
+        class="page-item"
+        :class="{ disabled: currentPage === 1 }"
+      >
         <a
-            class="page-link"
-            href="#"
-            aria-label="Previous"
-            @click.prevent="changePage(currentPage - 1)"
+          class="page-link"
+          href="#"
+          aria-label="Previous"
+          @click.prevent="changePage(currentPage - 1)"
         >
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
 
       <li
-          v-for="page in visiblePages"
-          :key="page"
-          class="page-item"
-          :class="{ active: page === currentPage }"
+        v-for="page in visiblePages"
+        :key="page"
+        class="page-item"
+        :class="{ active: page === currentPage }"
       >
         <a
-            class="page-link"
-            href="#"
-            @click.prevent="changePage(page)"
+          class="page-link"
+          href="#"
+          @click.prevent="changePage(page)"
         >
           {{ page }}
         </a>
       </li>
 
-      <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+      <li
+        class="page-item"
+        :class="{ disabled: currentPage === totalPages }"
+      >
         <a
-            class="page-link"
-            href="#"
-            aria-label="Next"
-            @click.prevent="changePage(currentPage + 1)"
+          class="page-link"
+          href="#"
+          aria-label="Next"
+          @click.prevent="changePage(currentPage + 1)"
         >
           <span aria-hidden="true">&raquo;</span>
         </a>

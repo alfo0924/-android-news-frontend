@@ -1,12 +1,15 @@
 <template>
-  <div class="news-card" :class="{ 'compact': compact }">
+  <div
+    class="news-card"
+    :class="{ 'compact': compact }"
+  >
     <div class="card h-100">
       <div class="row g-0">
         <div :class="imageColumnClass">
           <img
-              :src="news.imageUrl || 'https://via.placeholder.com/300x200?text=Android+News'"
-              class="img-fluid rounded-start news-image"
-              :alt="news.title"
+            :src="news.imageUrl || 'https://via.placeholder.com/300x200?text=Android+News'"
+            class="img-fluid rounded-start news-image"
+            :alt="news.title"
           >
         </div>
         <div :class="contentColumnClass">
@@ -16,14 +19,21 @@
                 <span class="badge bg-secondary">{{ news.category }}</span>
                 <span class="source-name">{{ news.source }}</span>
               </div>
-              <h3 class="card-title">{{ news.title }}</h3>
-              <p class="card-text" v-if="!compact">{{ news.summary }}</p>
+              <h3 class="card-title">
+                {{ news.title }}
+              </h3>
+              <p
+                v-if="!compact"
+                class="card-text"
+              >
+                {{ news.summary }}
+              </p>
             </div>
             <div class="mt-auto d-flex justify-content-between align-items-center">
               <small class="text-muted">{{ formatRelativeTime(news.publishDate) }}</small>
               <router-link
-                  :to="{ name: 'news-detail', params: { id: news.id }}"
-                  class="btn btn-sm btn-outline-primary"
+                :to="{ name: 'news-detail', params: { id: news.id }}"
+                class="btn btn-sm btn-outline-primary"
               >
                 閱讀更多
               </router-link>

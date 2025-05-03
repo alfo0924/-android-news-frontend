@@ -1,71 +1,97 @@
 <template>
   <div class="news-detail-component">
-    <div class="news-content" v-if="news">
+    <div
+      v-if="news"
+      class="news-content"
+    >
       <div class="news-meta mb-3">
         <div class="source-info">
           <img
-              :src="sourceLogoUrl"
-              :alt="news.source"
-              class="source-logo"
+            :src="sourceLogoUrl"
+            :alt="news.source"
+            class="source-logo"
           >
           <span class="source-name">{{ news.source }}</span>
         </div>
         <div class="publish-info">
-          <i class="bi bi-clock"></i>
+          <i class="bi bi-clock" />
           <span>{{ formatDateTime(news.publishDate) }}</span>
         </div>
       </div>
 
       <div class="news-tags mb-4">
         <span
-            v-for="(tag, index) in news.tags"
-            :key="index"
-            class="news-tag"
+          v-for="(tag, index) in news.tags"
+          :key="index"
+          class="news-tag"
         >
           #{{ tag }}
         </span>
       </div>
 
-      <div class="news-body" v-html="news.content"></div>
+      <div
+        class="news-body"
+        v-html="news.content"
+      />
 
       <div class="news-footer mt-5">
-        <div class="news-author" v-if="news.author">
+        <div
+          v-if="news.author"
+          class="news-author"
+        >
           <div class="author-avatar">
             <img
-                :src="news.authorAvatar || 'https://via.placeholder.com/50?text=A'"
-                :alt="news.author"
+              :src="news.authorAvatar || 'https://via.placeholder.com/50?text=A'"
+              :alt="news.author"
             >
           </div>
           <div class="author-info">
             <h4>{{ news.author }}</h4>
-            <p v-if="news.authorBio">{{ news.authorBio }}</p>
+            <p v-if="news.authorBio">
+              {{ news.authorBio }}
+            </p>
           </div>
         </div>
 
         <div class="share-buttons mt-4">
           <h5>分享這篇文章</h5>
           <div class="share-links">
-            <a href="#" class="share-link facebook">
-              <i class="bi bi-facebook"></i>
+            <a
+              href="#"
+              class="share-link facebook"
+            >
+              <i class="bi bi-facebook" />
             </a>
-            <a href="#" class="share-link twitter">
-              <i class="bi bi-twitter"></i>
+            <a
+              href="#"
+              class="share-link twitter"
+            >
+              <i class="bi bi-twitter" />
             </a>
-            <a href="#" class="share-link linkedin">
-              <i class="bi bi-linkedin"></i>
+            <a
+              href="#"
+              class="share-link linkedin"
+            >
+              <i class="bi bi-linkedin" />
             </a>
-            <a href="#" class="share-link email">
-              <i class="bi bi-envelope"></i>
+            <a
+              href="#"
+              class="share-link email"
+            >
+              <i class="bi bi-envelope" />
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div v-else class="placeholder-content">
-      <div class="placeholder-text"></div>
-      <div class="placeholder-text"></div>
-      <div class="placeholder-text"></div>
+    <div
+      v-else
+      class="placeholder-content"
+    >
+      <div class="placeholder-text" />
+      <div class="placeholder-text" />
+      <div class="placeholder-text" />
     </div>
   </div>
 </template>

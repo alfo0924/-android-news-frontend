@@ -2,10 +2,18 @@
   <aside class="sidebar">
     <div class="sidebar-content">
       <div class="popular-section">
-        <h3 class="sidebar-title">熱門話題</h3>
+        <h3 class="sidebar-title">
+          熱門話題
+        </h3>
         <ul class="popular-tags">
-          <li v-for="(tag, index) in popularTags" :key="index">
-            <a href="#" @click.prevent="searchTag(tag)">
+          <li
+            v-for="(tag, index) in popularTags"
+            :key="index"
+          >
+            <a
+              href="#"
+              @click.prevent="searchTag(tag)"
+            >
               #{{ tag }}
             </a>
           </li>
@@ -13,9 +21,14 @@
       </div>
 
       <div class="categories-section">
-        <h3 class="sidebar-title">分類瀏覽</h3>
+        <h3 class="sidebar-title">
+          分類瀏覽
+        </h3>
         <ul class="category-list">
-          <li v-for="category in displayCategories" :key="category.id">
+          <li
+            v-for="category in displayCategories"
+            :key="category.id"
+          >
             <router-link :to="{ name: 'category', params: { category: category.slug }}">
               {{ category.name }}
             </router-link>
@@ -24,18 +37,25 @@
       </div>
 
       <div class="subscribe-section">
-        <h3 class="sidebar-title">訂閱最新消息</h3>
+        <h3 class="sidebar-title">
+          訂閱最新消息
+        </h3>
         <p>獲取 Android 生態系統的最新動態</p>
         <form @submit.prevent="subscribe">
           <div class="input-group mb-3">
             <input
-                type="email"
-                class="form-control"
-                placeholder="您的電子郵件"
-                v-model="email"
-                required
+              v-model="email"
+              type="email"
+              class="form-control"
+              placeholder="您的電子郵件"
+              required
             >
-            <button class="btn btn-primary" type="submit">訂閱</button>
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              訂閱
+            </button>
           </div>
         </form>
       </div>

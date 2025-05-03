@@ -1,28 +1,40 @@
 <template>
   <div class="home">
-    <h1 class="mb-4">Android 最新資訊</h1>
+    <h1 class="mb-4">
+      Android 最新資訊
+    </h1>
 
-    <div v-if="isLoading" class="text-center my-5">
+    <div
+      v-if="isLoading"
+      class="text-center my-5"
+    >
       <LoadingSpinner />
     </div>
 
     <div v-else>
-      <div class="featured-news mb-5" v-if="featuredNews">
+      <div
+        v-if="featuredNews"
+        class="featured-news mb-5"
+      >
         <div class="card featured-card">
           <div class="row g-0">
             <div class="col-md-6">
               <img
-                  :src="featuredNews.imageUrl || 'https://via.placeholder.com/600x400?text=Android+News'"
-                  class="img-fluid rounded-start featured-image"
-                  :alt="featuredNews.title"
+                :src="featuredNews.imageUrl || 'https://via.placeholder.com/600x400?text=Android+News'"
+                class="img-fluid rounded-start featured-image"
+                :alt="featuredNews.title"
               >
             </div>
             <div class="col-md-6">
               <div class="card-body d-flex flex-column h-100">
                 <div>
                   <span class="badge bg-primary mb-2">熱門</span>
-                  <h2 class="card-title">{{ featuredNews.title }}</h2>
-                  <p class="card-text">{{ featuredNews.summary }}</p>
+                  <h2 class="card-title">
+                    {{ featuredNews.title }}
+                  </h2>
+                  <p class="card-text">
+                    {{ featuredNews.summary }}
+                  </p>
                 </div>
                 <div class="mt-auto">
                   <p class="card-text">
@@ -30,8 +42,8 @@
                     <span class="ms-2 badge bg-secondary">{{ featuredNews.source }}</span>
                   </p>
                   <router-link
-                      :to="{ name: 'news-detail', params: { id: featuredNews.id }}"
-                      class="btn btn-primary"
+                    :to="{ name: 'news-detail', params: { id: featuredNews.id }}"
+                    class="btn btn-primary"
                   >
                     閱讀全文
                   </router-link>
@@ -42,13 +54,15 @@
         </div>
       </div>
 
-      <h2 class="mb-3">最新新聞</h2>
+      <h2 class="mb-3">
+        最新新聞
+      </h2>
       <NewsList :news-items="latestNews" />
 
       <Pagination
-          :current-page="currentPage"
-          :total-pages="totalPages"
-          @page-changed="changePage"
+        :current-page="currentPage"
+        :total-pages="totalPages"
+        @page-changed="changePage"
       />
     </div>
   </div>

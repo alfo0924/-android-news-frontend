@@ -1,10 +1,18 @@
 <template>
   <div class="loading-spinner">
     <div class="spinner-container">
-      <div class="spinner-border text-primary" role="status">
+      <div
+        class="spinner-border text-primary"
+        role="status"
+      >
         <span class="visually-hidden">載入中...</span>
       </div>
-      <p v-if="showText" class="loading-text mt-2">{{ text }}</p>
+      <p
+        v-if="showText"
+        class="loading-text mt-2"
+      >
+        {{ text }}
+      </p>
     </div>
   </div>
 </template>

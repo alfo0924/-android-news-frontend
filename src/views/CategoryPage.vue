@@ -1,25 +1,36 @@
 <template>
   <div class="category-page">
-    <h1 class="mb-4">{{ categoryTitle }}</h1>
+    <h1 class="mb-4">
+      {{ categoryTitle }}
+    </h1>
 
-    <div v-if="isLoading" class="text-center my-5">
+    <div
+      v-if="isLoading"
+      class="text-center my-5"
+    >
       <LoadingSpinner />
     </div>
 
     <div v-else>
       <NewsFilter @filter-changed="applyFilter" />
 
-      <div v-if="categoryNews && categoryNews.length > 0" class="mt-4">
+      <div
+        v-if="categoryNews && categoryNews.length > 0"
+        class="mt-4"
+      >
         <NewsList :news-items="categoryNews" />
 
         <Pagination
-            :current-page="currentPage"
-            :total-pages="totalPages"
-            @page-changed="changePage"
+          :current-page="currentPage"
+          :total-pages="totalPages"
+          @page-changed="changePage"
         />
       </div>
 
-      <div v-else class="alert alert-info mt-4">
+      <div
+        v-else
+        class="alert alert-info mt-4"
+      >
         此分類目前沒有新聞。請稍後再查看或嘗試其他分類。
       </div>
     </div>
@@ -93,13 +104,13 @@ export default {
       })
     }
   },
-  created() {
-    this.fetchNewsByCategory({ category: this.category })
-  },
   watch: {
     category(newCategory) {
       this.fetchNewsByCategory({ category: newCategory })
     }
+  },
+  created() {
+    this.fetchNewsByCategory({ category: this.category })
   }
 }
 </script>

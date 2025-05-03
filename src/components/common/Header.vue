@@ -2,44 +2,67 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <router-link class="navbar-brand" to="/">
-          <img src="@/assets/images/logo.png" alt="Android News Hub" height="40" v-if="false">
+        <router-link
+          class="navbar-brand"
+          to="/"
+        >
+          <img
+            v-if="false"
+            src="@/assets/images/logo.png"
+            alt="Android News Hub"
+            height="40"
+          >
           <span class="logo-text">Android News Hub</span>
         </router-link>
 
         <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" />
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
+        <div
+          id="navbarContent"
+          class="collapse navbar-collapse"
+        >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link" to="/" exact>首頁</router-link>
+              <router-link
+                class="nav-link"
+                to="/"
+                exact
+              >
+                首頁
+              </router-link>
             </li>
             <li class="nav-item dropdown">
               <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                id="navbarDropdown"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 分類
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li v-for="category in categories" :key="category.id">
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdown"
+              >
+                <li
+                  v-for="category in categories"
+                  :key="category.id"
+                >
                   <router-link
-                      class="dropdown-item"
-                      :to="{ name: 'category', params: { category: category.slug }}"
+                    class="dropdown-item"
+                    :to="{ name: 'category', params: { category: category.slug }}"
                   >
                     {{ category.name }}
                   </router-link>
@@ -47,19 +70,32 @@
               </ul>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/about">關於我們</router-link>
+              <router-link
+                class="nav-link"
+                to="/about"
+              >
+                關於我們
+              </router-link>
             </li>
           </ul>
 
-          <form class="d-flex" @submit.prevent="search">
+          <form
+            class="d-flex"
+            @submit.prevent="search"
+          >
             <input
-                class="form-control me-2"
-                type="search"
-                placeholder="搜尋 Android 新聞..."
-                aria-label="Search"
-                v-model="searchQuery"
+              v-model="searchQuery"
+              class="form-control me-2"
+              type="search"
+              placeholder="搜尋 Android 新聞..."
+              aria-label="Search"
             >
-            <button class="btn btn-outline-primary" type="submit">搜尋</button>
+            <button
+              class="btn btn-outline-primary"
+              type="submit"
+            >
+              搜尋
+            </button>
           </form>
         </div>
       </div>

@@ -1,19 +1,25 @@
 <template>
   <div class="news-page">
-    <div v-if="isLoading" class="text-center my-5">
+    <div
+      v-if="isLoading"
+      class="text-center my-5"
+    >
       <LoadingSpinner />
     </div>
 
-    <div v-else-if="currentNews" class="news-detail">
+    <div
+      v-else-if="currentNews"
+      class="news-detail"
+    >
       <div class="news-header mb-4">
         <h1>{{ currentNews.title }}</h1>
         <div class="news-meta">
           <span class="source">{{ currentNews.source }}</span>
           <span class="date">{{ formatDateTime(currentNews.publishDate) }}</span>
           <span
-              v-for="(tag, index) in currentNews.tags"
-              :key="index"
-              class="badge bg-secondary me-1"
+            v-for="(tag, index) in currentNews.tags"
+            :key="index"
+            class="badge bg-secondary me-1"
           >
             {{ tag }}
           </span>
@@ -22,40 +28,62 @@
 
       <div class="featured-image-container mb-4">
         <img
-            :src="currentNews.imageUrl || 'https://via.placeholder.com/1200x600?text=Android+News'"
-            class="img-fluid rounded"
-            :alt="currentNews.title"
+          :src="currentNews.imageUrl || 'https://via.placeholder.com/1200x600?text=Android+News'"
+          class="img-fluid rounded"
+          :alt="currentNews.title"
         >
-        <small v-if="currentNews.imageCredit" class="image-credit">
+        <small
+          v-if="currentNews.imageCredit"
+          class="image-credit"
+        >
           圖片來源: {{ currentNews.imageCredit }}
         </small>
       </div>
 
       <div class="news-content mb-5">
-        <p class="summary lead">{{ currentNews.summary }}</p>
-        <div v-html="currentNews.content"></div>
+        <p class="summary lead">
+          {{ currentNews.summary }}
+        </p>
+        <div v-html="currentNews.content" />
       </div>
 
       <div class="news-footer">
         <h3>相關新聞</h3>
         <div v-if="currentNews.relatedNews && currentNews.relatedNews.length > 0">
-          <NewsList :news-items="currentNews.relatedNews" :compact="true" />
+          <NewsList
+            :news-items="currentNews.relatedNews"
+            :compact="true"
+          />
         </div>
-        <div v-else class="text-muted">
+        <div
+          v-else
+          class="text-muted"
+        >
           暫無相關新聞
         </div>
 
         <div class="mt-4">
-          <router-link to="/" class="btn btn-outline-primary">
-            <i class="bi bi-arrow-left"></i> 返回首頁
+          <router-link
+            to="/"
+            class="btn btn-outline-primary"
+          >
+            <i class="bi bi-arrow-left" /> 返回首頁
           </router-link>
         </div>
       </div>
     </div>
 
-    <div v-else class="alert alert-warning">
+    <div
+      v-else
+      class="alert alert-warning"
+    >
       找不到該新聞，可能已被刪除或移動。
-      <router-link to="/" class="alert-link">返回首頁</router-link>
+      <router-link
+        to="/"
+        class="alert-link"
+      >
+        返回首頁
+      </router-link>
     </div>
   </div>
 </template>
@@ -86,13 +114,13 @@ export default {
     ...mapActions('news', ['fetchNewsById']),
     formatDateTime
   },
-  created() {
-    this.fetchNewsById(this.id)
-  },
   watch: {
     id(newId) {
       this.fetchNewsById(newId)
     }
+  },
+  created() {
+    this.fetchNewsById(this.id)
   },
   metaInfo() {
     return {

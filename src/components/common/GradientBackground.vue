@@ -1,6 +1,12 @@
 <template>
-  <div class="gradient-background" ref="background">
-    <div class="gradient-overlay" :style="gradientStyle"></div>
+  <div
+    ref="background"
+    class="gradient-background"
+  >
+    <div
+      class="gradient-overlay"
+      :style="gradientStyle"
+    />
   </div>
 </template>
 
@@ -18,34 +24,6 @@ export default {
       gradientStyle: {
         background: 'linear-gradient(135deg, #667eea, #764ba2)'
       }
-    }
-  },
-  methods: {
-    handleMouseMove(e) {
-      this.mouseX = e.clientX
-      this.mouseY = e.clientY
-
-      // 使用節流函數減少更新頻率，提高性能
-      if (!this.ticking) {
-        window.requestAnimationFrame(() => {
-          this.updateGradient()
-          this.ticking = false
-        })
-        this.ticking = true
-      }
-    },
-    updateGradient() {
-      this.gradientStyle.background = calculateGradient(
-          this.mouseX,
-          this.mouseY,
-          this.windowWidth,
-          this.windowHeight
-      )
-    },
-    handleResize() {
-      this.windowWidth = window.innerWidth
-      this.windowHeight = window.innerHeight
-      this.updateGradient()
     }
   },
   mounted() {
@@ -81,6 +59,34 @@ export default {
     window.removeEventListener('resize', this.handleResize)
     if (window.DeviceOrientationEvent) {
       window.removeEventListener('deviceorientation', this.handleDeviceOrientation)
+    }
+  },
+  methods: {
+    handleMouseMove(e) {
+      this.mouseX = e.clientX
+      this.mouseY = e.clientY
+
+      // 使用節流函數減少更新頻率，提高性能
+      if (!this.ticking) {
+        window.requestAnimationFrame(() => {
+          this.updateGradient()
+          this.ticking = false
+        })
+        this.ticking = true
+      }
+    },
+    updateGradient() {
+      this.gradientStyle.background = calculateGradient(
+          this.mouseX,
+          this.mouseY,
+          this.windowWidth,
+          this.windowHeight
+      )
+    },
+    handleResize() {
+      this.windowWidth = window.innerWidth
+      this.windowHeight = window.innerHeight
+      this.updateGradient()
     }
   }
 }

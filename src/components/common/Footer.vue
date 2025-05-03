@@ -3,60 +3,88 @@
     <div class="footer-content">
       <div class="row">
         <div class="col-md-4">
-          <h3 class="footer-title">Android News Hub</h3>
+          <h3 class="footer-title">
+            Android News Hub
+          </h3>
           <p>
             您的 Android 生態系統最新資訊來源，提供最新、最全面的 Android 相關新聞。
           </p>
           <div class="social-links">
-            <a href="#" class="social-link">
-              <i class="bi bi-facebook"></i>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="bi bi-facebook" />
             </a>
-            <a href="#" class="social-link">
-              <i class="bi bi-twitter"></i>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="bi bi-twitter" />
             </a>
-            <a href="#" class="social-link">
-              <i class="bi bi-instagram"></i>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="bi bi-instagram" />
             </a>
-            <a href="#" class="social-link">
-              <i class="bi bi-github"></i>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="bi bi-github" />
             </a>
           </div>
         </div>
 
         <div class="col-md-4">
-          <h3 class="footer-title">快速連結</h3>
+          <h3 class="footer-title">
+            快速連結
+          </h3>
           <ul class="footer-links">
             <li>
-              <router-link to="/">首頁</router-link>
+              <router-link to="/">
+                首頁
+              </router-link>
             </li>
             <li>
-              <router-link to="/category/phones">手機</router-link>
+              <router-link to="/category/phones">
+                手機
+              </router-link>
             </li>
             <li>
-              <router-link to="/category/apps">應用程式</router-link>
+              <router-link to="/category/apps">
+                應用程式
+              </router-link>
             </li>
             <li>
-              <router-link to="/category/os">作業系統</router-link>
+              <router-link to="/category/os">
+                作業系統
+              </router-link>
             </li>
             <li>
-              <router-link to="/about">關於我們</router-link>
+              <router-link to="/about">
+                關於我們
+              </router-link>
             </li>
           </ul>
         </div>
 
         <div class="col-md-4">
-          <h3 class="footer-title">聯絡我們</h3>
+          <h3 class="footer-title">
+            聯絡我們
+          </h3>
           <ul class="contact-info">
             <li>
-              <i class="bi bi-envelope"></i>
+              <i class="bi bi-envelope" />
               <a href="mailto:contact@androidnewshub.com">contact@androidnewshub.com</a>
             </li>
             <li>
-              <i class="bi bi-geo-alt"></i>
+              <i class="bi bi-geo-alt" />
               <span>台北市信義區信義路五段7號</span>
             </li>
             <li>
-              <i class="bi bi-telephone"></i>
+              <i class="bi bi-telephone" />
               <span>+886 2 1234 5678</span>
             </li>
           </ul>

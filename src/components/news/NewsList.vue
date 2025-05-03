@@ -1,15 +1,20 @@
 <template>
   <div class="news-list">
-    <div v-if="newsItems.length === 0" class="text-center my-5">
-      <p class="text-muted">沒有找到相關新聞</p>
+    <div
+      v-if="newsItems.length === 0"
+      class="text-center my-5"
+    >
+      <p class="text-muted">
+        沒有找到相關新聞
+      </p>
     </div>
 
     <div v-else>
       <NewsCard
-          v-for="news in newsItems"
-          :key="news.id"
-          :news="news"
-          :compact="compact"
+        v-for="news in newsItems"
+        :key="news.id"
+        :news="news"
+        :compact="compact"
       />
     </div>
   </div>
