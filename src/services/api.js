@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: process.env.VUE_APP_API_URL,
+    baseURL: 'http://localhost:8080/api',
     headers: {
         'Content-Type': 'application/json'
     }
@@ -10,7 +10,6 @@ const api = axios.create({
 // 請求攔截器
 api.interceptors.request.use(
     config => {
-        // 可以在這裡添加認證令牌等
         return config
     },
     error => {
